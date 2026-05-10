@@ -1,0 +1,14 @@
+[build]
+  command = "vite build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA fallback: serve the prerendered shell for all routes so TanStack Router
+# can handle client-side navigation. Static assets are served directly by
+# Netlify before this rule is evaluated.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
